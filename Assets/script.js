@@ -49,7 +49,7 @@ var findPassLength = function () {
   if (typeof (parseInt(passLength)) !== 'number' || passLength < 8 || passLength > 128 || !passLength) {
     alert("Please enter a Number between 8 and 128");
     return findPassLength();
-  } 
+  }
   // console.log(passLength)
   return passLength;
 };
@@ -128,9 +128,10 @@ function generatePassword() {
 
 // // Write password to the #password input
 function writePassword() {
-  var password
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
+  console.log(password)
 };
 
 // // Get references to the #generate element
