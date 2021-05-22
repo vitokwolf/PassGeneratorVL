@@ -6,17 +6,6 @@ var upperCaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var numberChars = '0123456789';
 var symbolChars = '!@#$%^&*()+-';
 
-// Prompt to identify how long the password should be
-function findPassLength() {
-  var passLength = prompt("How many characters do you want your password to contain?");
-  if (passLength < 8 || passLength > 128) {
-    alert("Please enter a number between 8 and 128");
-    return findPassLength();
-  } console.log(passLength)
-  return passLength;
-
-};
-
 // passLength = parseInt(findPassLength());
 
 //random number generator function
@@ -31,43 +20,49 @@ function randomSymb() {
   var value = symbolChars[randomNumber(0, (symbolChars.length) - 1)];
   return value;
 };
-console.log(randomSymb());
+// console.log(randomSymb());
 
 //**generates a random lowercase character
 function randomLower() {
   var value = lowerCaseChars[randomNumber(0, (lowerCaseChars.length) - 1)];
   return value;
 };
-console.log(randomLower());
+// console.log(randomLower());
 
 //**generates a random uppercase character
 function randomUpper() {
   var value = upperCaseChars[randomNumber(0, (upperCaseChars.length) - 1)];
   return value;
 }
-console.log(randomUpper());
+// console.log(randomUpper());
 
 //**generates a random numeric character
 function randomNumChar() {
   var value = numberChars[randomNumber(0, (numberChars.length) - 1)];
   return value;
 }
-console.log(randomNumChar());
+// console.log(randomNumChar());
 
-
-// // Get references to the #generate element
-// var generateBtn = document.querySelector("#generate");
-
-
+// Prompt to identify how long the password should be
+var findPassLength = function () {
+  var passLength = prompt("How many characters do you want your password to contain?");
+  if (typeof (parseInt(passLength)) !== 'number' || passLength < 8 || passLength > 128 || !passLength) {
+    alert("Please enter a Number between 8 and 128");
+    return findPassLength();
+  } 
+  // console.log(passLength)
+  return passLength;
+};
 
 // // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+function writePassword() {
+  var password
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+};
 
-//   passwordText.value = password;
-
-// }
+// // Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
 
 // // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
