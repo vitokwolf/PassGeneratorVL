@@ -104,6 +104,27 @@ var passConditions = function () {
   }
 };
 
+// generate password function
+function generatePassword() {
+  var specLength = findPassLength();
+  passArray = passConditions();
+  password = "";
+  //ensures at least one type of character is in the password
+  for (var i = 0; i < passArray.length; i++) {
+    var passChar = passArray[i]();
+    password = password + passChar;
+  }
+  //resets the password length variable
+  var runningLength = password.length;
+  //addresses the rest of the variable
+  for (var i = 0; i < specLength - runningLength; i++) {
+    var passChar = passArray[randomNumber(0, (passArray.length - 1))]();
+    password = password + passChar;
+  }
+  console.log(password, password.length);
+  console.log("end of generate Password function");
+  return password;
+};
 
 // // Write password to the #password input
 function writePassword() {
