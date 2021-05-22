@@ -54,6 +54,57 @@ var findPassLength = function () {
   return passLength;
 };
 
+// creating conditions for password:
+var passConditions = function () {
+  //initializes an empty array
+  var passArray = [];
+  //checks the length of the array 
+  // console.log(passArray);
+
+  while (passArray.length === 0) {
+    var lowerCase = confirm("Would you like your password to include lowercase characters?");
+    if (lowerCase === true) {
+      //adds the randomLower function
+      passArray.push(randomLower);
+      // window.alert("Your password will include lowercase characters.")
+    } else {
+      // window.alert("Your password will NOT include lowercase characters ")
+    };
+    var upperCase = confirm("Would you like your password to include uppercase characters?");
+    if (upperCase === true) {
+      //adds the randomUpper function
+      passArray.push(randomUpper);
+      // window.alert("Your password will include upper-case characters.");
+    } else {
+      // window.alert("Your password will NOT include upper-case characters.")
+    };
+    var specChar = confirm("Would you like your password to include special characters/symbols?");
+    if (specChar === true) {
+      //adds the randomSymb function
+      passArray.push(randomSymb);
+      // window.alert("Your password will include  special characters/symbols");
+    } else {
+      // window.alert("Your password will NOT include special characters/symbols")
+    };
+    var numb = confirm("Would you like your password to include numbers?")
+    if (numb === true) {
+      //adds the randomNumChar function
+      passArray.push(randomNumChar);
+      // window.alert("Your password will include numbers")
+    } else {
+      // window.alert("Your password will NOT include numbers.")
+    };
+    //checks to see if there is at least one item in the array
+    if (passArray.length === 0) {
+      alert("I'm sorry, you need to have at least one character type to generate a password, please try again");
+    }
+    else {
+      return passArray;
+    }
+  }
+};
+
+
 // // Write password to the #password input
 function writePassword() {
   var password
