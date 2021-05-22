@@ -46,7 +46,7 @@ function randomNumChar() {
 // Prompt to identify how long the password should be
 var findPassLength = function () {
   var passLength = prompt("How many characters do you want your password to contain?");
-  if (typeof (parseInt(passLength)) !== 'number' || passLength < 8 || passLength > 128 || !passLength) {
+  if (typeof (parseInt(passLength)) !== 'number' || passLength <= 8 || passLength >= 128 || !passLength) {
     alert("Please enter a Number between 8 and 128");
     return findPassLength();
   }
@@ -113,8 +113,8 @@ function generatePassword() {
     var passChar = passArray[randomNumber(0, (passArray.length - 1))]();
     password = password + passChar;
   }
-  console.log(password, password.length);
-  console.log("end of generate Password function");
+  // console.log(password, password.length);
+  // console.log("end of generate Password function");
   return password;
 };
 
