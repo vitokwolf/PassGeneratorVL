@@ -4,7 +4,7 @@
 var lowerCaseChars = 'abcedfghijklmnopqrstuvwxyz';
 var upperCaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var numberChars = '0123456789';
-var symbolChars = '!@#$%^&*()+-';
+var symbolChars = ' !#$%&()*+,-./<=>?@[\]^_`{|}~';
 
 // passLength = parseInt(findPassLength());
 
