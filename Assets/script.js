@@ -6,8 +6,6 @@ var upperCaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var numberChars = '0123456789';
 var symbolChars = ' !#$%&()*+,-./<=>?@[\]^_`{|}~';
 
-// passLength = parseInt(findPassLength());
-
 //random number generator function
 function randomNumber(min, max) {
   var value = Math.floor(Math.random() * (max - min + 1) + min);
@@ -45,8 +43,8 @@ function randomNumChar() {
 
 // Prompt to identify how long the password should be
 var findPassLength = function () {
-  var passLength = prompt("How many characters do you want your password to contain?");
-  if (typeof (parseInt(passLength)) !== 'number' || passLength <= 8 || passLength >= 128 || !passLength) {
+  var passLength = parseInt(prompt("How many characters do you want your password to contain?"));
+  if (typeof(passLength) !== 'number' || passLength <= 8 || passLength >= 128 || !passLength) {
     alert("Please enter a Number between 8 and 128");
     return findPassLength();
   }
